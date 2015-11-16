@@ -1,0 +1,540 @@
+
+#maincontainer {
+    margin-top: 70px;
+}
+
+#mainsidebar {
+    padding: 0px;
+}
+
+#maincontent {
+    padding: 0px;
+}
+
+#mainfoundations {
+    background: inherit;
+}
+
+#mainfoundations img {
+    width: 160px;
+    height: 80px;
+    margin: 50px auto;
+    display: block;
+}
+
+#mainjumbotron {
+    position: relative;
+    background-color: #dd4814;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    box-shadow: inset 0 0 100px rgba(0,0,0,.5);  
+}
+
+#mainjumbotronbody {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 60%;
+    height: 50%;
+    margin: auto;
+}
+
+#mainjumbotronbody .jumbotronbuttons {
+    margin-top: 50px;
+}
+
+#mainjumbotronfooter {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+}
+
+#mainjumbotronfooter p {
+    color: white;
+}
+
+#mainjumbotronbody .btn {
+    text-shadow: none;
+    font-weight: bold;
+}
+
+#mainnavbar {
+    background-color: #dd4814;
+    border-color: #bf3e11;
+}
+
+#mainnavbar .navbar-header .navbar-brand {
+    color: white;
+}
+
+#mainnavbar .navbar-nav > li > a {
+    color: white;
+}
+
+#mainnavbar .navbar-nav > li > a:hover,
+#mainnavbar .navbar-nav > li > a:focus {
+    color: white;
+    background-color: #97310e;
+}
+
+#mainnavbar .navbar-nav > .active > a,
+#mainnavbar .navbar-nav > .active > a:hover,
+#mainnavbar .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: #ae3910;
+}
+
+#mainnavbar .navbar-nav>.open>a {
+    color: white;
+    background-color: #97310e;
+}
+
+#mainnavbar .navbar-toggle {
+    background: transparent;
+}
+
+#mainnavbar .navbar-toggle .icon-bar {
+    background: white;
+}
+
+@media (max-width: 767px) {
+    #mainnavbar .navbar-nav .open .dropdown-menu>li>a {
+        color: white;
+    }
+
+    #mainnavbar .navbar-nav .open .dropdown-menu>li>a:hover,
+    #mainnavbar .navbar-nav .open .dropdown-menu>li>a:focus {
+        background-color: #ae3910;
+    }
+}
+
+#mainprices .price {
+    background: rgba(100,100,100,.1);
+    padding: 20px 20px 40px;
+    margin: 20px 0 50px;
+    border-right: 4px solid #eee;
+    font-size: 14px;
+}
+#mainprices .price h2 {
+    font-size: 25px;
+}
+#mainprices .number {
+    font-size: 50px;
+    font-weight: 300;
+    padding: 20px 0;
+}
+#mainprices .price .list-group-item {
+    position: relative;
+    display: block;
+    padding: 5px 0;
+    background-color: transparent;
+    border: 0;
+}
+#mainprices .price .label-danger {
+    padding: 10px 20px;
+    display: inline-block;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#mainprices .featured {
+    border: 0;
+    padding: 20px 20px 50px;
+    -webkit-box-shadow: 0 0 30px 5px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 30px 5px rgba(0,0,0,.5);
+    box-shadow: 0 0 30px 5px rgba(0,0,0,.5);
+}
+#mainprices .thin {
+    font-weight: 400;
+}
+#mainprices .fixed {
+    background-attachment: fixed!important;
+}
+#mainprices .btn-default,
+#mainprices .btn-default:hover,
+#mainprices .btn-default:focus {
+    background: transparent;
+}
+#mainprices a.border-button, 
+#mainprices a.border-button-black, 
+#mainprices .border-button, 
+#mainprices .border-button-black {
+    font-size:16px;
+    padding:10px 30px;
+    font-weight:400;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 2px;
+    text-shadow: none;
+}
+#mainprices a.border-button, 
+#mainprices .border-button {
+    border:2px solid #eee;
+    color:#eee;
+    margin-right: 10px;
+}
+#mainprices a.border-button-black, 
+#mainprices .border-button-black {
+    border:1px solid #1b1f23;
+    background: transparent;
+    color: #1b1f23!important;
+}
+#mainprices .border-button:hover, 
+#mainprices .border-button-black:hover,
+#mainprices .border-button:focus, 
+#mainprices .border-button-black:focus {
+    opacity: 0.5;
+}
+#mainprices .border-button:hover, 
+#mainprices .border-button:focus {
+    color: #fff;
+}
+
+#mainevents .portfolio-carousel {
+  padding: 0;
+  color: white;
+  background-color: #222222;
+}
+#mainevents .portfolio-carousel .item {
+  background-color: #222222;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  padding: 50px 55px;
+  text-align: center;
+}
+#mainevents .portfolio-carousel .item .portfolio-image {
+  margin-top: 50px;
+}
+#mainevents .portfolio-carousel .item .project-details {
+  padding: 0;
+}
+#mainevents .portfolio-carousel .item .project-details img.client-logo {
+  margin: 0 auto 25px;
+}
+#mainevents .portfolio-carousel .item .project-details .project-name {
+  display: block;
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 5px;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#mainevents .portfolio-carousel .item .project-details .project-description {
+  display: block;
+  font-size: 18px;
+  line-height: 18px;
+}
+#mainevents .portfolio-carousel .owl-controls {
+  margin-top: 0;
+}
+#mainevents .portfolio-carousel .owl-controls .owl-prev,
+#mainevents .portfolio-carousel .owl-controls .owl-next {
+  text-align: center;
+  position: absolute;
+  height: 75px;
+  width: 50px;
+  border-radius: 0 !important;
+  line-height: 70px;
+  font-size: 30px !important;
+  margin: auto 0 !important;
+  top: 0;
+  bottom: 0;
+  background-color: #ef4035 !important;
+  color: white !important;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#mainevents .portfolio-carousel .owl-controls .owl-prev:hover,
+#mainevents .portfolio-carousel .owl-controls .owl-next:hover {
+  opacity: 1;
+}
+#mainevents .portfolio-carousel .owl-controls .owl-prev {
+  left: 0;
+}
+#mainevents .portfolio-carousel .owl-controls .owl-next {
+  right: 0;
+}
+@media (min-width: 992px) {
+  #mainevents .portfolio-carousel .item {
+    padding: 155px 55px 155px;
+    text-align: left;
+    min-height: 100%;
+  }
+  #mainevents .portfolio-carousel .item .portfolio-image {
+    margin-top: 0;
+  }
+  #mainevents .portfolio-carousel .item .project-details {
+    padding: 15% 0 0;
+  }
+  #mainevents .portfolio-carousel .item .project-details img.client-logo {
+    margin: 0 auto 25px 0;
+  }
+  #mainevents .portfolio-carousel .item .project-details .project-name {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+  }
+  #mainevents .portfolio-carousel .item .project-details .project-description {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  #mainevents .portfolio-carousel .item hr.colored {
+    margin: 20px auto 20px 0;
+  }
+}
+#mainevents .portfolio-gallery .item {
+  padding: 15px;
+}
+#mainevents .portfolio-modal {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+#mainevents .portfolio-modal .modal-backdrop {
+  display: none;
+}
+#mainevents .portfolio-modal .modal-content {
+  color: white;
+  background: transparent;
+  border-radius: 0;
+  background-clip: border-box;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  min-height: 100%;
+  padding: 100px 0;
+  text-align: center;
+}
+#mainevents .portfolio-modal .modal-content h2 {
+  margin: 0;
+  font-size: 46px;
+}
+#mainevents .portfolio-modal .modal-content img {
+  margin: 30px auto;
+}
+#mainevents .portfolio-modal .modal-content .item-details {
+  margin: 30px 0;
+}
+#mainevents .portfolio-modal .close-modal {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+}
+#mainevents .portfolio-modal .close-modal:hover {
+  opacity: 0.3;
+}
+#mainevents .portfolio-modal .close-modal .lr {
+  height: 75px;
+  width: 1px;
+  margin-left: 35px;
+  background-color: white;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Safari and Chrome */
+  z-index: 1051;
+}
+#mainevents .portfolio-modal .close-modal .lr .rl {
+  height: 75px;
+  width: 1px;
+  background-color: white;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Safari and Chrome */
+  z-index: 1052;
+}
+#mainevents .portfolio-filter {
+  display: inline-block;
+}
+#mainevents .portfolio-filter #filters {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+#mainevents .portfolio-filter #filters li {
+  display: inline-block;
+}
+#mainevents .portfolio-filter #filters li .filter {
+  display: block;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin: 2px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: #222222;
+  background: transparent;
+  border: 1px solid #222222;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#mainevents .portfolio-filter #filters li .filter.active {
+  background-color: #ef4035;
+  color: white;
+  border-color: #ef4035;
+}
+#mainevents #portfoliolist .portfolio {
+  width: 31%;
+  margin: 1%;
+  display: none;
+  float: left;
+  overflow: hidden;
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper {
+  overflow: hidden;
+  position: relative !important;
+  background: #222222;
+  cursor: pointer;
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper img {
+  max-width: 100%;
+  position: relative;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper img:hover {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper .caption {
+  position: absolute;
+  width: 100%;
+  height: 75px;
+  bottom: -75px;
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper .caption .caption-bg {
+  background: #ef4035;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper .caption .caption-text {
+  color: white;
+  position: relative;
+  z-index: 500;
+  padding: 15px 8px;
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper .caption .caption-text a.text-title {
+  color: white;
+}
+#mainevents #portfoliolist .portfolio .portfolio-wrapper .caption .caption-text .text-category {
+  display: block;
+  font-size: 12px;
+}
+@media only screen and (max-width: 767px) {
+  #mainevents #portfoliolist .portfolio {
+    width: 48%;
+    margin: 1%;
+  }
+}
+
+#mainsidebar .well {
+    padding: 0px;
+    padding-bottom: 10px;
+}
+
+#mainsidebar .nav-header { 
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#mainsidebar li a {
+    padding: 3px 15px;
+}
+
+#mainsidebar .active a {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    /*background-color: #0088cc;*/
+    background: #dd4814;
+}
+
+/* GENERAL STYLES */
+
+.maintitle {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 50px;
+}
+.mainsubtitle {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.mainsubtitle.lead {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.mainrow {
+  max-width: 100px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  height: 2px;
+  margin: 15px auto;  
+  border-color: #ef4035;
+}
+
+.page-header {
+    margin-top: 0px;
+}
+
+.page-header h1 {
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #dd4814;
+    border-color: #bf3e11;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+    background-color: #97310e;
+}
+
+.btn.btn-primary:active {
+    background-color: #ae3910;
+}
+
+.btn.btn-primary[disabled=disabled], .btn.btn-primary:disabled {
+    background-color: #ae3910;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #dd4814;
+}
