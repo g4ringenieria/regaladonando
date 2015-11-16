@@ -36,13 +36,13 @@ class EventFormView extends SiteView
     {
         $form = new BSForm();
         $form->setMethod("POST");
-        $form->setAction($this->getUrl("events/addEvent"));        
+        $form->setAction($this->getUrl("events/addEvent"));
         $form->setEnctype("multipart/form-data");
         $form->addField(new BSTextField(["name"=>"name", "label"=>"Nombre", "required"=>true, "autoFocus"=>true]));
         $form->addField(new BSTextAreaField(["name"=>"description", "label"=>"Descripción", "required"=>true, "rows"=>4]));
         $form->addField(new BSSelectField(["name"=>"foundationid", "label"=>"Fundación", "options"=>$this->getFoundations()]));
         $form->addField(new BSDateTimeField(["name"=>"date", "label"=>"Fecha de evento"]));
-        $form->addField(new BSFileInput(["name"=>"images", "label"=>"Imagenes", "multiple"=>true]));
+        $form->addField(new BSFileInput(["name"=>"images", "label"=>"Imagenes", "multiple"=>true, "uploadUrl"=>$this->getUrl("events/uploadImage"), "dropZoneTitle"=>"Arrastrar imagenes aquí", "allowedFileExtensions"=>["jpg", "png", "gif"]]));
         $form->addButton(new BSButton("Agregar evento", ["type"=>"submit", "style"=>BSButton::STYLE_PRIMARY]));
         return $form;
     }
