@@ -35,9 +35,8 @@ class EventsController extends SiteController
     public function showEventFormAction($id=null)
     {
         $event = null;
-        if ($id != null) {
+        if ($id != null) 
             $event = MainConnection::getInstance()->getEntity (Event::getClass(), $id);
-        }
         return new EventFormView($event);
     }
     
@@ -98,18 +97,49 @@ class EventsController extends SiteController
         $response = new stdClass();
         try
         {
-            $eventDirectory = new File (realpath("") . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "events" . DIRECTORY_SEPARATOR . $id);
+            $eventDirectory = $this->getEventImagesDir($id);
             if (!$eventDirectory->exists())
                 $eventDirectory->mkdir();    
             if (!move_uploaded_file($_FILES["images"]["tmp_name"], $eventDirectory->getFileName() . DIRECTORY_SEPARATOR . basename($_FILES["images"]["tmp_name"]))) 
-            {
                 throw new Exception ("Error uploading image");
-            }
         }
         catch (Exception $ex)
         {
             $response->error = $ex->getMessage();
         }
         return $response;
+    }
+    
+    public function deleteImageAction ($id, $imageName)
+    {
+        $response = new stdClass();
+        try
+        {
+            $eventImageFile = new File ($this->getEventImagesDir($id)->getFileName() . DIRECTORY_SEPARATOR . $imageName);
+            $eventImageFile->delete();
+        }
+        catch (Exception $ex)
+        {
+            $response->error = $ex->getMessage();
+        }
+        return $response;
+    }
+    
+    public function getEventImages ($id)
+    {
+        $images = [];
+        $eventDir = $this->getEventImagesDir($id);
+        if ($eventDir->exists())
+        {
+            $fileImages = $eventDir->listDir();
+            foreach ($fileImages as $fileImage)
+                $images[] = $this->getBaseUrl() . "res/images/events/$id/" . basename($fileImage);
+        }
+        return $images;
+    }
+    
+    private function getEventImagesDir ($id)
+    {
+        return new File (realpath("") . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "events" . DIRECTORY_SEPARATOR . $id);
     }
 }
