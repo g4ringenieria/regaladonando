@@ -27,7 +27,7 @@ class EventFormView extends SiteView
     protected function createContent()
     {
         $container = parent::createContent();
-        $container->addElement(new HTMLTag("div", ["class"=>"page-header"], new HTMLTag("h1", "Nuevo Evento")));
+        $container->addElement(new HTMLTag("div", ["class"=>"page-header"], new HTMLTag("h1", $this->event != null? "Modificar Evento" : "Nuevo Evento")));
         $container->addElement($this->createEventForm());
         return $container;
     }
@@ -41,8 +41,9 @@ class EventFormView extends SiteView
         $form->addField(new BSTextField(["name"=>"name", "label"=>"Nombre", "required"=>true, "autoFocus"=>true]));
         $form->addField(new BSTextAreaField(["name"=>"description", "label"=>"Descripción", "required"=>true, "rows"=>4]));
         $form->addField(new BSSelectField(["name"=>"foundationid", "label"=>"Fundación", "options"=>$this->getFoundations()]));
-        $form->addField(new BSDateTimeField(["name"=>"date", "label"=>"Fecha de evento"]));
-        $form->addField(new BSFileInput(["name"=>"images", "label"=>"Imagenes", "multiple"=>true, "uploadUrl"=>$this->getUrl("events/uploadImage"), "dropZoneTitle"=>"Arrastrar imagenes aquí", "allowedFileExtensions"=>["jpg", "png", "gif"]]));
+        $form->addField(new BSDateTimeField(["name"=>"date", "label"=>"Fecha de evento", "required"=>true]));
+        if ($this->event != null)
+            $form->addField(new BSFileInput(["name"=>"images", "label"=>"Imagenes", "multiple"=>true, "uploadUrl"=>$this->getUrl("events/uploadImage"), "uploadExtraData"=>["id"=>$event->getId()], "dropZoneTitle"=>"Arrastrar imagenes aquí", "allowedFileExtensions"=>["jpg", "png", "gif"]]));
         $form->addButton(new BSButton("Agregar evento", ["type"=>"submit", "style"=>BSButton::STYLE_PRIMARY]));
         return $form;
     }
