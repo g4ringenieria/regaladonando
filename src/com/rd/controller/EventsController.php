@@ -41,14 +41,16 @@ class EventsController extends SiteController
         return new EventFormView($event);
     }
     
-    public function showEventAction ($id, $mode = EventFormView::MODE_NORMAL)
+    public function showEventAction ($id)
     {
-        $event = MainConnection::getInstance()->getEntity ( Event::getClass (), $id );
-        if ($event) {
-            $event->setUser(MainConnection::getInstance()->getEntity(User::getClass(), $event->getUser()->getId()));
-            $event->setFoundation(MainConnection::getInstance()->getEntity(Foundation::getClass(), $event->getFoundation()->getId()));
+        $conn = MainConnection::getInstance();
+        $event = $conn->getEntity ( Event::getClass (), $id );
+        if ($event) 
+        {
+            $event->setUser($conn->completeEntity($event->getUser()));
+            $event->setFoundation($conn->completeEntity($event->getFoundation()));
         }
-        $eventView = new EventView($event, $mode);
+        $eventView = new EventView($event);
         return $eventView;
     }
     
