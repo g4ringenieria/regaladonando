@@ -35,6 +35,7 @@ class EventsView extends SiteView
         { 
             $html = '
                 <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <a class="btn btn-group btn-primary" role="group" href="' . $this->getUrl("events/showEvent", ["id"=>$event->getId()]) . '">Ver</a>
                     <a class="btn btn-group btn-primary" role="group" href="' . $this->getUrl("events/showEventForm", ["id"=>$event->getId()]) . '">Modificar</a>
                     <a class="btn btn-group btn-primary" role="group" href="' . $this->getUrl("events/deleteEvent", ["id"=>$event->getId()]) . '">Borrar</a>
                 </div>
