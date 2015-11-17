@@ -33,7 +33,13 @@ class EventsView extends SiteView
         $table->addEntityColumn("Fundación", "foundation_name");
         $table->addEntityColumn("Acción", function ($event) 
         { 
-            return '<a class="btn btn-primary" href="' . $this->getUrl("events/deleteEvent", ["id"=>$event->getId()]) . '" role="button" type="button">Borrar</a>'; 
+            $html = '
+                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <a class="btn btn-group btn-primary" role="group" href="' . $this->getUrl("events/showEventForm", ["id"=>$event->getId()]) . '">Modificar</a>
+                    <a class="btn btn-group btn-primary" role="group" href="' . $this->getUrl("events/deleteEvent", ["id"=>$event->getId()]) . '">Borrar</a>
+                </div>
+            ';
+            return $html;
         });
         $table->setEntities($this->events);
         return $table;

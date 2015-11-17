@@ -6,6 +6,7 @@ use com\bootstrap\component\BSButton;
 use com\bootstrap\component\form\BSDateTimeField;
 use com\bootstrap\component\form\BSFileInput;
 use com\bootstrap\component\form\BSForm;
+use com\bootstrap\component\form\BSHiddenField;
 use com\bootstrap\component\form\BSSelectField;
 use com\bootstrap\component\form\BSTextAreaField;
 use com\bootstrap\component\form\BSTextField;
@@ -36,15 +37,17 @@ class EventFormView extends SiteView
     {
         $form = new BSForm();
         $form->setMethod("POST");
-        $form->setAction($this->getUrl("events/addEvent"));
+        $form->setAction($this->getUrl($this->event != null? "events/modifyEvent": "events/addEvent"));
         $form->setEnctype("multipart/form-data");
-        $form->addField(new BSTextField(["name"=>"name", "label"=>"Nombre", "required"=>true, "autoFocus"=>true]));
-        $form->addField(new BSTextAreaField(["name"=>"description", "label"=>"Descripción", "required"=>true, "rows"=>4]));
-        $form->addField(new BSSelectField(["name"=>"foundationid", "label"=>"Fundación", "options"=>$this->getFoundations()]));
-        $form->addField(new BSDateTimeField(["name"=>"date", "label"=>"Fecha de evento", "required"=>true]));
         if ($this->event != null)
-            $form->addField(new BSFileInput(["name"=>"images", "label"=>"Imagenes", "multiple"=>true, "uploadUrl"=>$this->getUrl("events/uploadImage"), "uploadExtraData"=>["id"=>$event->getId()], "dropZoneTitle"=>"Arrastrar imagenes aquí", "allowedFileExtensions"=>["jpg", "png", "gif"]]));
-        $form->addButton(new BSButton("Agregar evento", ["type"=>"submit", "style"=>BSButton::STYLE_PRIMARY]));
+            $form->addField(new BSHiddenField (["name"=>"id", "value"=>$this->event->getId()]));
+        $form->addField(new BSTextField(["name"=>"name", "label"=>"Nombre", "value"=>$this->event?$this->event->getName():"", "required"=>true, "autoFocus"=>true]));
+        $form->addField(new BSTextAreaField(["name"=>"description", "label"=>"Descripción", "value"=>$this->event?$this->event->getDescription():"", "required"=>true, "rows"=>4]));
+        $form->addField(new BSSelectField(["name"=>"foundationid", "label"=>"Fundación", "value"=>$this->event?$this->event->getFoundation()->getId():"", "options"=>$this->getFoundations()]));
+        $form->addField(new BSDateTimeField(["name"=>"date", "label"=>"Fecha de evento", "value"=>$this->event?$this->event->getDate():"", "required"=>true]));
+        if ($this->event != null)
+            $form->addField(new BSFileInput(["name"=>"images", "label"=>"Imagenes", "multiple"=>true, "uploadUrl"=>$this->getUrl("events/uploadImage"), "uploadExtraData"=>["id"=>$this->event->getId()], "dropZoneTitle"=>"Arrastrar imagenes aquí", "allowedFileExtensions"=>["jpg", "png", "gif"]]));
+        $form->addButton(new BSButton(($this->event != null)? "Modifcar evento" : "Agregar evento", ["type"=>"submit", "style"=>BSButton::STYLE_PRIMARY]));
         return $form;
     }
     

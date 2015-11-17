@@ -32,9 +32,13 @@ class EventsController extends SiteController
         return new EventsView($events);
     }
     
-    public function showEventFormAction()
+    public function showEventFormAction($id=null)
     {
-        return new EventFormView();
+        $event = null;
+        if ($id != null) {
+            $event = MainConnection::getInstance()->getEntity (Event::getClass(), $id);
+        }
+        return new EventFormView($event);
     }
     
     public function showEventAction ($id, $mode = EventFormView::MODE_NORMAL)
@@ -65,6 +69,18 @@ class EventsController extends SiteController
         $event->setCreationDate(date('Y-m-d'));
         MainConnection::getInstance()->insertEntity($event);
         return $this->showEventImagesAction(MainConnection::getInstance()->getLastInsertedId("event_eventid_seq"));
+    }
+    
+    public function modifyEventAction ($id, $name, $description, $foundationid, $date)
+    {
+        $event = new Event();
+        $event->setId($id);
+        $event->setName($name);
+        $event->setDescription($description);
+        $event->setFoundation(new Foundation($foundationid));
+        $event->setDate($date);
+        MainConnection::getInstance()->updateEntity($event);
+        return $this->showEventsAction();
     }
     
     public function deleteEventAction ($id)
